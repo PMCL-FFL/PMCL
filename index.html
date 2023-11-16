@@ -1,79 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Location Tracker</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Location Tracker</title>
 </head>
 <body>
-    <h1>Location Tracker</h1>
-    <form id="locationForm">
-        <label for="employeeId">Employee ID:</label>
-        <input type="text" id="employeeId" name="employeeId" required>
-        <br>
-        <label for="latitude">Latitude:</label>
-        <input type="text" id="latitude" name="latitude" readonly>
-        <br>
-        <label for="longitude">Longitude:</label>
-        <input type="text" id="longitude" name="longitude" readonly>
-        <br>
-        <button type="submit">Submit</button>
-    </form>
+  <h1>Location Tracker</h1>
+  <button id="openForm">Open Form</button>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            getLocation();
-        });
+  <script>
+    document.getElementById('openForm').addEventListener('click', openForm);
 
-        function getLocation() {
-            if ('geolocation' in navigator) {
-                navigator.geolocation.getCurrentPosition(
-                    function(position) {
-                        document.getElementById('latitude').value = position.coords.latitude;
-                        document.getElementById('longitude').value = position.coords.longitude;
-                    },
-                    function(error) {
-                        console.error('Error getting location:', error.message);
-                    }
-                );
-            } else {
-                alert('Geolocation is not supported by your browser.');
-            }
-        }
+    function openForm() {
+      // Replace 'YOUR_FORM_URL' with the actual URL of your Google Form
+      var formUrl = 'https://forms.gle/zr89X7ppq1rfnnVQ6';
 
-        document.getElementById('locationForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            sendLocationInfo();
-        });
-
-        function sendLocationInfo() {
-            const employeeId = document.getElementById('employeeId').value;
-            const latitude = document.getElementById('latitude').value;
-            const longitude = document.getElementById('longitude').value;
-            const timestamp = new Date().toLocaleString();
-
-            // Replace 'YOUR_WEB_APP_URL' with the actual URL of your deployed Google Apps Script web app
-            const scriptUrl = 'https://script.google.com/macros/s/AKfycbx_OXR_ocll2nUAD2NdBKhlXaO7i91tt7bwtVvpqq75Z4F-xZs6A_QaF1WreJMlXU75/exec';
-            
-            // Construct the URL with the parameters
-            const locationInfo = `employeeId=${employeeId}&latitude=${latitude}&longitude=${longitude}&timestamp=${timestamp}`;
-
-            // Send the locationInfo to the server (Google Apps Script)
-            fetch(`${scriptUrl}?${locationInfo}`)
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok');
-                    }
-                    return response.text();
-                })
-                .then(data => {
-                    console.log('Location data sent successfully:', data);
-                })
-                .catch(error => {
-                    console.error('Error sending location data:', error);
-                });
-        }
-    </script>
+      window.open(formUrl);
+    }
+  </script>
 </body>
 </html>
