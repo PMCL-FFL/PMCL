@@ -1,24 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Location Tracker</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Location Form</title>
 </head>
 <body>
-  <h1>Location Tracker</h1>
-  <button id="openForm">Open Form</button>
+    <h1>Employee Location Form</h1>
+    
+    <!-- Embed the Google Form -->
+    <iframe src="https://forms.gle/37u6rYvamobRXKNN6" width="640" height="480" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+    
+    <!-- OR -->
+    
+    <!-- Create a QR Code with the Google Form URL -->
+    <img src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=https://forms.gle/37u6rYvamobRXKNN6" alt="QR Code">
 
-  <script>
-    document.getElementById('openForm').addEventListener('click', openForm);
-
-    function openForm() {
-      // Replace 'YOUR_FORM_URL' with the actual URL of your Google Form
-      var formUrl = 'https://script.google.com/macros/s/AKfycbx0OlZ4npAuxyWLOyfuQEc4uWEZhucCOVqCk4h6ndaqBU43FSTi9A4-uW_OWA0bjBLdGw/exec';
-
-      window.open(formUrl);
-    }
-  </script>
 </body>
 </html>
