@@ -1,16 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Employee Location Tracker</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employee Check-in Form</title>
 </head>
 <body>
-    <h1>Employee Location Tracker</h1>
-    <a href="https://forms.gle/3Yz6m9nUUQYgTDc26" target="_blank">Open Employee Location Form</a>
 
-    <!-- Add any additional HTML or scripts as needed -->
+<!-- Google Form Embed Code -->
+<iframe src="https://forms.gle/z3Y7JZRKX8BnpGK16" width="640" height="800" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+
+<!-- Script for Reverse Geocoding -->
+<script>
+  // Replace YOUR_API_KEY with the API key obtained from OpenCage Geocoding
+  const apiKey = '9a85b8b64a6645649d02dbd5ecea457b';
+
+  // Replace LATITUDE and LONGITUDE with the actual coordinates
+  const latitude = '28.2600067';
+  const longitude = '70.0319379';
+
+  // Make a request to the OpenCage Geocoding API
+  const apiUrl = `https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=${apiKey}`;
+
+  fetch(apiUrl)
+    .then(response => response.json())
+    .then(data => {
+      // Extract the formatted address from the response
+      const formattedAddress = data.results[0].formatted;
+      console.log('Formatted Address:', formattedAddress);
+
+      // Display the address on the page
+      const addressElement = document.createElement('p');
+      addressElement.textContent = `Formatted Address: ${formattedAddress}`;
+      document.body.appendChild(addressElement);
+    })
+    .catch(error => console.error('Error:', error));
+</script>
 
 </body>
 </html>
