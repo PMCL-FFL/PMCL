@@ -1,5 +1,5 @@
 // Replace YOUR_API_KEY with the API key obtained from OpenCage Geocoding
-const apiKey = '9a85b8b64a6645649d02dbd5ecea457b';
+const apiKey = 'https://api.opencagedata.com/geocode/v1/json?q=LAT+LNG&key=9a85b8b64a6645649d02dbd5ecea457b';
 
 // Replace LATITUDE and LONGITUDE with the actual coordinates
 const latitude = '28.2600067';
