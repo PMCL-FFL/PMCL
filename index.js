@@ -6,7 +6,7 @@ const latitude = '28.2600067';
 const longitude = '70.0319379';
 
 // Make a request to the OpenCage Geocoding API
-const apiUrl = `https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=${9a85b8b64a6645649d02dbd5ecea457b}`;
+const apiUrl = `https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=${apiKey}`;
 
 fetch(apiUrl)
   .then(response => response.json())
